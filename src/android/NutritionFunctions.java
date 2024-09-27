@@ -1,5 +1,7 @@
 package org.apache.cordova.health;
 
+import android.util.Log;
+
 import androidx.health.connect.client.aggregate.AggregateMetric;
 import androidx.health.connect.client.aggregate.AggregationResult;
 import androidx.health.connect.client.records.NutritionRecord;
@@ -29,6 +31,11 @@ import java.util.Set;
 import kotlin.reflect.KClass;
 
 public class NutritionFunctions {
+    /**
+     * Tag used in logs
+    */
+    public static String TAG = "cordova-plugin-health";
+
     public static KClass<? extends Record> dataTypeToClass() {
         return kotlin.jvm.JvmClassMappingKt.getKotlinClass(NutritionRecord.class);
     }
@@ -134,8 +141,10 @@ public class NutritionFunctions {
             }
         }
 
-        System.out.println("mealType: " + mealType);
-        System.out.println("storeObj: " + storeObj.getDouble("carbs_total"));
+        Log.d(TAG, "mealType: " + mealType);
+        Log.d(TAG, "storeObj: " + storeObj);
+
+        Log.d(TAG, "storeObj: " + storeObj.getDouble("carbs_total"));
 
         double kcal = storeObj.getDouble("calories");
         double protein = storeObj.getDouble("protein");
