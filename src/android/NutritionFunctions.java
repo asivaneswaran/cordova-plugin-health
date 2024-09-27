@@ -63,10 +63,10 @@ public class NutritionFunctions {
         Double protein = nutritionR.getProtein().getGrams();
         nutritionStats.put("protein", protein);
 
-        Double fat = nutritionR.totalFat().inGrams();
+        Double fat = nutritionR.getTotalFat().inGrams();
         nutritionStats.put("fat.total", fat);
 
-        Double carbs = nutritionR.totalCarbohydrate().getGrams();
+        Double carbs = nutritionR.getTotalCarbohydrate().getGrams();
         nutritionStats.put("carbs.total", carbs);
 
         nutritionStats.put("value", nutritionStats);
