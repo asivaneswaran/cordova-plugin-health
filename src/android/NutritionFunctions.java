@@ -134,8 +134,8 @@ public class NutritionFunctions {
             }
         }
 
-        println("mealType: " + mealType);
-        println("storeObj: " + storeObj.getDouble("carbs_total"));
+        System.out.println("mealType: " + mealType);
+        System.out.println("storeObj: " + storeObj.getDouble("carbs_total"));
 
         double kcal = storeObj.getDouble("calories");
         double protein = storeObj.getDouble("protein");
