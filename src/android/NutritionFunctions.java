@@ -48,13 +48,13 @@ public class NutritionFunctions {
         nutritionStats.put("calories", kcal);
 
         int mealType = nutritionR.getMealType();
-        if(mealType.equalsIgnoreCase(MealType.MEAL_TYPE_BREAKFAST)) {
+        if(mealType.equals(MealType.MEAL_TYPE_BREAKFAST)) {
             nutritionStats.put("meal_type", "breakfast");
-        } else if(mealType.equalsIgnoreCase(MealType.MEAL_TYPE_LUNCH)) {
+        } else if(mealType.equals(MealType.MEAL_TYPE_LUNCH)) {
             nutritionStats.put("meal_type", "lunch");
-        } else if(mealType.equalsIgnoreCase(MealType.MEAL_TYPE_DINNER)) {
+        } else if(mealType.equals(MealType.MEAL_TYPE_DINNER)) {
             nutritionStats.put("meal_type", "dinner");
-        } else if(mealType.equalsIgnoreCase(MealType.MEAL_TYPE_SNACK)) {
+        } else if(mealType.equals(MealType.MEAL_TYPE_SNACK)) {
             nutritionStats.put("meal_type", "snack");
         } else {
             nutritionStats.put("meal_type", "unknown");
