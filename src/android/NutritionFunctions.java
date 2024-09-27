@@ -106,13 +106,13 @@ public class NutritionFunctions {
     }
 
     public static AggregateGroupByDurationRequest prepareAggregateGroupByDurationRequest (TimeRangeFilter timeRange, Duration duration, HashSet<DataOrigin> dor) {
-        Set<AggregateMetric<Duration>> metrics = new HashSet<>();
+        Set<AggregateMetric<Energy>> metrics = new HashSet<>();
         metrics.add(NutritionRecord.ENERGY_TOTAL);
         return new AggregateGroupByDurationRequest(metrics, timeRange, duration, dor);
     }
 
     public static AggregateRequest prepareAggregateRequest(TimeRangeFilter timeRange, HashSet<DataOrigin> dor) {
-        Set<AggregateMetric<Duration>> metrics = new HashSet<>();
+        Set<AggregateMetric<Energy>> metrics = new HashSet<>();
         metrics.add(NutritionRecord.ENERGY_TOTAL);
         return new AggregateRequest(metrics, timeRange, dor);
     }
