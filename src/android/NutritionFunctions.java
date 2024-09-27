@@ -91,7 +91,8 @@ public class NutritionFunctions {
             retObj.put("value", nutritionStats);
             retObj.put("unit", "meal");
         } else {
-            retObj.put("value", {});
+            JSONObject emptyObject = new JSONObject();
+            retObj.put("value", emptyObject);
             retObj.put("unit", "meal");
         }
     }
