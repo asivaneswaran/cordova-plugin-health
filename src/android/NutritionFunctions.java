@@ -64,10 +64,10 @@ public class NutritionFunctions {
         nutritionStats.put("protein", protein);
 
         Double fat = nutritionR.getTotalFat().getGrams();
-        nutritionStats.put("fat.total", fat);
+        nutritionStats.put("fat_tottal", fat);
 
         Double carbs = nutritionR.getTotalCarbohydrate().getGrams();
-        nutritionStats.put("carbs.total", carbs);
+        nutritionStats.put("carbs_total", carbs);
 
         nutritionStats.put("value", nutritionStats);
         nutritionStats.put("unit", "meal");
@@ -84,10 +84,10 @@ public class NutritionFunctions {
             nutritionStats.put("protein", totalProtein != null ? totalProtein.getGrams() : 0);
 
             Mass totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL);
-            nutritionStats.put("fat.total", totalFat != null ? totalFat.getGrams() : 0);
+            nutritionStats.put("fat_tottal", totalFat != null ? totalFat.getGrams() : 0);
 
             Mass totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
-            nutritionStats.put("carbs.total", totalCarbs != null ? totalCarbs.getGrams() : 0);
+            nutritionStats.put("carbs_total", totalCarbs != null ? totalCarbs.getGrams() : 0);
 
             retObj.put("value", nutritionStats);
             retObj.put("unit", "meal");
@@ -136,57 +136,57 @@ public class NutritionFunctions {
 
         double kcal = storeObj.getDouble("calories");
         double protein = storeObj.getDouble("protein");
-        double fat = storeObj.getDouble("fat.total");
-        double carbs = storeObj.getDouble("carbs.total");
+        double fat = storeObj.getDouble("fat_tottal");
+        double carbs = storeObj.getDouble("carbs_total");
         String name = storeObj.getString("item");
 
         NutritionRecord record = new NutritionRecord(
                 Instant.ofEpochMilli(st),
                 null,
-                Instant.ofEpochMilli(st),
+                Instant.ofEpochMilli(et),
                 null,
                 null,
                 null,
                 null,
-                Energy.kilocalories(kcal),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                Mass.grams(protein),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                Mass.grams(carbs),
-                Mass.grams(fat),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
+                Energy.kilocalories(kcal), // Energy
+                null, // Energy from fat
+                null, // Chloride
+                null, // Cholesterol
+                null, // Chromium
+                null, // Copper
+                null, // Dietary fiber
+                null, // Folate
+                null, // Folid acid
+                null, // Iodine
+                null, // Iron
+                null, // Magnesium
+                null, // Manganese
+                null, // Molybdenum
+                null, // Monosaturated fat
+                null, // Niacin
+                null, // Pantothenic acid
+                null, // Phosphorus
+                null, // Polyunsaturated fat
+                null, // Potassium
+                Mass.grams(protein), // Protein
+                null, // Riboflavin
+                null, // Saturated fat
+                null, // Selenium
+                null, // Sodium
+                null, // Sugars
+                null, // Thiamin
+                Mass.grams(carbs), // Total carbohydrate
+                Mass.grams(fat), // Total fat
+                null, // Trans fat
+                null, // Unsaturated fat
+                null, // Vitamin A
+                null, // Vitamin B12
+                null, // Vitamin B6
+                null, // Vitamin C
+                null, // Vitamin D
+                null, // Vitamin E
+                null, // Vitamin K
+                null, // Zinc
                 name,
                 mealType,
                 Metadata.EMPTY
