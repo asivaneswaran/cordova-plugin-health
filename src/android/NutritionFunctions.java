@@ -98,7 +98,7 @@ public class NutritionFunctions {
 
             Log.d(TAG, "nutrition stats: " + nutritionStats);
 
-            Log.d(TAG, "storeObj: " + totalCarbs.getGrams());
+            Log.d(TAG, "carbs: " + totalCarbs);
 
             retObj.put("value", nutritionStats);
             retObj.put("unit", "meal");
