@@ -38,8 +38,8 @@ public class NutritionFunctions {
         JSONObject nutritionStats = new JSONObject();
 
         NutritionRecord nutritionR = (NutritionRecord) datapoint;
-        nutritionStats.put("startDate", nutritionR.getTime().toEpochMilli());
-        nutritionStats.put("endDate", nutritionR.getTime().toEpochMilli());
+        nutritionStats.put("startDate", nutritionR.getStartTime().toEpochMilli());
+        nutritionStats.put("endDate", nutritionR.getEndTime().toEpochMilli());
 
         String name = nutritionR.getName();
         nutritionStats.put("item", name);
