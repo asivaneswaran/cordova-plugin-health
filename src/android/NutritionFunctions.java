@@ -77,17 +77,17 @@ public class NutritionFunctions {
         if (response.get(NutritionRecord.ENERGY_TOTAL) != null) {
             JSONObject nutritionStats = new JSONObject();
 
-            double totalEnergy = response.get(NutritionRecord.ENERGY_TOTAL).getKilocalories();
-            nutritionStats.put("calories", totalEnergy);
+            double totalEnergy = response.get(NutritionRecord.ENERGY_TOTAL);
+            nutritionStats.put("calories", totalEnergy ? totalEnergy.getKilocalories() : 0);
 
-            double totalProtein = response.get(NutritionRecord.PROTEIN_TOTAL).getGrams();
-            nutritionStats.put("protein", totalProtein);
+            double totalProtein = response.get(NutritionRecord.PROTEIN_TOTAL);
+            nutritionStats.put("protein", totalProtein ? totalProtein.getGrams() : 0);
 
-            double totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL).getGrams();
-            nutritionStats.put("fat.total", totalFat);
+            double totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL);
+            nutritionStats.put("fat.total", totalFat ? totalFat.getGrams() : 0);
 
-            double totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL).getGrams();
-            nutritionStats.put("carbs.total", totalCarbs);
+            double totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
+            nutritionStats.put("carbs.total", totalCarbs ? totalCarbs.getGrams() : 0);
 
             retObj.put("value", nutritionStats);
             retObj.put("unit", "meal");
