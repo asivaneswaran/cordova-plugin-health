@@ -118,12 +118,10 @@ public class NutritionFunctions {
     }
 
     public static void prepareStoreRecords(JSONObject storeObj, List<Record> data) throws JSONException {
-        double nutritionObj = storeObj.getDouble("value");
-
         int mealType = MealType.MEAL_TYPE_UNKNOWN;
       
-        if (nutritionObj.has("meal")) {
-            String meal = nutritionObj.getString("meal_type");
+        if (storeObj.has("meal")) {
+            String meal = storeObj.getString("meal_type");
   
             if (meal.equalsIgnoreCase("dinner")) {
                 mealType = MealType.MEAL_TYPE_DINNER;
@@ -136,11 +134,11 @@ public class NutritionFunctions {
             }
         }
 
-        double kcal = nutritionObj.getDouble("calories");
-        double protein = nutritionObj.getDouble("protein");
-        double fat = nutritionObj.getDouble("fat.total");
-        double carbs = nutritionObj.getDouble("carbs.total");
-        String name = nutritionObj.getString("item");
+        double kcal = storeObj.getDouble("calories");
+        double protein = storeObj.getDouble("protein");
+        double fat = storeObj.getDouble("fat.total");
+        double carbs = storeObj.getDouble("carbs.total");
+        String name = storeObj.getString("item");
 
         NutritionRecord record = new NutritionRecord(
                 Instant.ofEpochMilli(st),
