@@ -96,6 +96,7 @@ public class NutritionFunctions {
             Mass totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
             nutritionStats.put("carbs_total", totalCarbs != null ? totalCarbs.getGrams() : 0);
 
+            Log.g(TAG, "response: " + response);
             Log.d(TAG, "nutrition stats: " + nutritionStats);
 
             Log.d(TAG, "carbs: " + totalCarbs);
