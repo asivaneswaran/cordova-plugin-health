@@ -44,7 +44,7 @@ public class NutritionFunctions {
         String name = nutritionR.getName();
         nutritionStats.put("item", name);
 
-        Double kcal = nutritionR.getEnergy().inKilocalories;
+        Double kcal = nutritionR.getEnergy().getKilocalories();
         nutritionStats.put("calories", kcal);
 
         int mealType = nutritionR.getMealType();
@@ -60,13 +60,13 @@ public class NutritionFunctions {
             nutritionStats.put("meal_type", "unknown");
         }
 
-        Double protein = nutritionR.getProtein().inGrams;
+        Double protein = nutritionR.getProtein().getGrams();
         nutritionStats.put("protein", protein);
 
         Double fat = nutritionR.totalFat().inGrams();
         nutritionStats.put("fat.total", fat);
 
-        Double carbs = nutritionR.totalCarbohydrate().inGrams;
+        Double carbs = nutritionR.totalCarbohydrate().getGrams();
         nutritionStats.put("carbs.total", carbs);
 
         nutritionStats.put("value", nutritionStats);
@@ -77,16 +77,16 @@ public class NutritionFunctions {
         if (response.get(NutritionRecord.ENERGY_TOTAL) != null) {
             JSONObject nutritionStats = new JSONObject();
 
-            double totalEnergy = response.get(NutritionRecord.ENERGY_TOTAL).inKilocalories;
+            double totalEnergy = response.get(NutritionRecord.ENERGY_TOTAL).getKilocalories();
             nutritionStats.put("calories", totalEnergy);
 
-            double totalProtein = response.get(NutritionRecord.PROTEIN_TOTAL).inGrams;
+            double totalProtein = response.get(NutritionRecord.PROTEIN_TOTAL).getGrams();
             nutritionStats.put("protein", totalProtein);
 
-            double totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL).inGrams;
+            double totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL).getGrams();
             nutritionStats.put("fat.total", totalFat);
 
-            double totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL).inGrams;
+            double totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL).getGrams();
             nutritionStats.put("carbs.total", totalCarbs);
 
             retObj.put("value", nutritionStats);
