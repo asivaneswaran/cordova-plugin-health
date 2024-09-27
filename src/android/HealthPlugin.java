@@ -288,7 +288,7 @@ public class HealthPlugin extends CordovaPlugin {
         if (name.equalsIgnoreCase("height")) {
             return HeightFunctions.dataTypeToClass();
         }
-        if (name.equalsIgnoreCase("nutrition")) {
+        if (name.equalsIgnoreCase("nutrition") || name.equalsIgnoreCase("macros")) {
             return NutritionFunctions.dataTypeToClass();
         }
         if (name.equalsIgnoreCase("sleep")) {
@@ -656,6 +656,8 @@ public class HealthPlugin extends CordovaPlugin {
                         request = StepsFunctions.prepareAggregateGroupByPeriodRequest(timeRange, period, dor);
                     } else if (datatype.equalsIgnoreCase("nutrition")) {
                         request = NutritionFunctions.prepareAggregateGroupByPeriodRequest(timeRange, period, dor);
+                    } else if (datatype.equalsIgnoreCase("macros")) {
+                        request = NutritionFunctions.prepareAggregateGroupByPeriodRequestMacros(timeRange, period, dor);
                     }  else if (datatype.equalsIgnoreCase("weight")) {
                         request = WeightFunctions.prepareAggregateGroupByPeriodRequest(timeRange, period, dor);
                     } else if (datatype.equalsIgnoreCase("height")) {
@@ -716,6 +718,8 @@ public class HealthPlugin extends CordovaPlugin {
                         request = StepsFunctions.prepareAggregateGroupByDurationRequest(timeRange, duration, dor);
                     } else if (datatype.equalsIgnoreCase("nutrition")) {
                         request = NutritionFunctions.prepareAggregateGroupByDurationRequest(timeRange, duration, dor);
+                    } else if (datatype.equalsIgnoreCase("macros")) {
+                        request = NutritionFunctions.prepareAggregateGroupByDurationRequestMacros(timeRange, duration, dor);
                     } else if (datatype.equalsIgnoreCase("weight")) {
                         request = WeightFunctions.prepareAggregateGroupByDurationRequest(timeRange, duration, dor);
                     } else if (datatype.equalsIgnoreCase("height")) {
@@ -779,6 +783,8 @@ public class HealthPlugin extends CordovaPlugin {
                     request = StepsFunctions.prepareAggregateRequest(timeRange, dor);
                 } else if (datatype.equalsIgnoreCase("nutrition")) {
                     request = NutritionFunctions.prepareAggregateRequest(timeRange, dor);
+                } else if (datatype.equalsIgnoreCase("macros")) {
+                    request = NutritionFunctions.prepareAggregateRequestMacros(timeRange, dor);
                 }  else if (datatype.equalsIgnoreCase("weight")) {
                     request = WeightFunctions.prepareAggregateRequest(timeRange, dor);
                 } else if (datatype.equalsIgnoreCase("height")) {
@@ -839,7 +845,7 @@ public class HealthPlugin extends CordovaPlugin {
         // DATA_TYPE add here new data types when extending
         if (datatype.equalsIgnoreCase("steps")) {
             StepsFunctions.populateFromAggregatedQuery(response, retObj);
-        } else if (datatype.equalsIgnoreCase("nutrition")) {
+        } else if (datatype.equalsIgnoreCase("nutrition") || datatype.equalsIgnoreCase("macros")) {
             NutritionFunctions.populateFromAggregatedQuery(response, retObj);
         } else if (datatype.equalsIgnoreCase("weight")) {
             WeightFunctions.populateFromAggregatedQuery(response, retObj);
@@ -1024,7 +1030,7 @@ public class HealthPlugin extends CordovaPlugin {
                 SleepFunctions.prepareStoreRecords(args.getJSONObject(0), data);
             } else if (datatype.equalsIgnoreCase("heart_rate")) {
                 HeartRateFunctions.prepareStoreRecords(args.getJSONObject(0), st, et, data);
-            } else if (datatype.equalsIgnoreCase("nutrition")) {
+            } else if (datatype.equalsIgnoreCase("nutrition") || datatype.equalsIgnoreCase("macros")) {
                 NutritionFunctions.prepareStoreRecords(args.getJSONObject(0), st, et, data);
             } else {
                 callbackContext.error("Datatype not supported " + datatype);

@@ -129,6 +129,31 @@ public class NutritionFunctions {
         return new AggregateRequest(metrics, timeRange, dor);
     }
 
+    public static AggregateGroupByPeriodRequest prepareAggregateGroupByPeriodRequestMacros (TimeRangeFilter timeRange, Period period, HashSet<DataOrigin> dor) {
+        Set<AggregateMetric<Mass>> metrics = new HashSet<>();
+        metrics.add(NutritionRecord.PROTEIN_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_FAT_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
+
+        return new AggregateGroupByPeriodRequest(metrics, timeRange, period, dor);
+    }
+
+    public static AggregateGroupByDurationRequest prepareAggregateGroupByDurationRequestMacros (TimeRangeFilter timeRange, Duration duration, HashSet<DataOrigin> dor) {
+        Set<AggregateMetric<Mass>> metrics = new HashSet<>();
+         metrics.add(NutritionRecord.PROTEIN_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_FAT_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
+        return new AggregateGroupByDurationRequest(metrics, timeRange, duration, dor);
+    }
+
+    public static AggregateRequest prepareAggregateRequestMacros (TimeRangeFilter timeRange, HashSet<DataOrigin> dor) {
+        Set<AggregateMetric<Mass>> metrics = new HashSet<>();
+        metrics.add(NutritionRecord.PROTEIN_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_FAT_TOTAL);
+        metrics.add(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
+        return new AggregateRequest(metrics, timeRange, dor);
+    }
+
     public static void prepareStoreRecords(JSONObject storeObj, long st, long et, List<Record> data) throws JSONException {
         int mealType = MealType.MEAL_TYPE_UNKNOWN;
       
