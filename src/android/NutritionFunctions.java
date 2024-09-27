@@ -44,7 +44,7 @@ public class NutritionFunctions {
         String name = nutritionR.getName();
         nutritionStats.put("item", name);
 
-        Double kcal = nutritionR.getEnergy().inKilocalories();
+        Double kcal = nutritionR.getEnergy().inKilocalories;
         nutritionStats.put("calories", kcal);
 
         int mealType = nutritionR.getMealType();
@@ -60,13 +60,13 @@ public class NutritionFunctions {
             nutritionStats.put("meal_type", "unknown");
         }
 
-        Double protein = nutritionR.getProtein().inGrams();
+        Double protein = nutritionR.getProtein().inGrams;
         nutritionStats.put("protein", protein);
 
         Double fat = nutritionR.totalFat().inGrams();
         nutritionStats.put("fat.total", fat);
 
-        Double carbs = nutritionR.totalCarbohydrate().inGrams();
+        Double carbs = nutritionR.totalCarbohydrate().inGrams;
         nutritionStats.put("carbs.total", carbs);
 
         nutritionStats.put("value", nutritionStats);
