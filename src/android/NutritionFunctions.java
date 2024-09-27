@@ -64,7 +64,7 @@ public class NutritionFunctions {
         nutritionStats.put("protein", protein);
 
         Double fat = nutritionR.getTotalFat().getGrams();
-        nutritionStats.put("fat_tottal", fat);
+        nutritionStats.put("fat_total", fat);
 
         Double carbs = nutritionR.getTotalCarbohydrate().getGrams();
         nutritionStats.put("carbs_total", carbs);
@@ -84,7 +84,7 @@ public class NutritionFunctions {
             nutritionStats.put("protein", totalProtein != null ? totalProtein.getGrams() : 0);
 
             Mass totalFat = response.get(NutritionRecord.TOTAL_FAT_TOTAL);
-            nutritionStats.put("fat_tottal", totalFat != null ? totalFat.getGrams() : 0);
+            nutritionStats.put("fat_total", totalFat != null ? totalFat.getGrams() : 0);
 
             Mass totalCarbs = response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL);
             nutritionStats.put("carbs_total", totalCarbs != null ? totalCarbs.getGrams() : 0);
@@ -134,9 +134,12 @@ public class NutritionFunctions {
             }
         }
 
+        println("mealType: " + mealType);
+        println("storeObj: " + storeObj.getDouble("carbs_total"));
+
         double kcal = storeObj.getDouble("calories");
         double protein = storeObj.getDouble("protein");
-        double fat = storeObj.getDouble("fat_tottal");
+        double fat = storeObj.getDouble("fat_total");
         double carbs = storeObj.getDouble("carbs_total");
         String name = storeObj.getString("item");
 
