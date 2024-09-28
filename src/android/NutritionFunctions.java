@@ -76,8 +76,8 @@ public class NutritionFunctions {
         Double carbs = nutritionR.getTotalCarbohydrate().getGrams();
         nutritionStats.put("carbs_total", carbs);
 
-        nutritionStats.put("value", nutritionStats);
-        nutritionStats.put("unit", "meal");
+        obj.put("value", nutritionStats);
+        obj.put("unit", "meal");
     }
 
     public static void populateFromAggregatedQuery(AggregationResult response, JSONObject retObj) throws JSONException {
