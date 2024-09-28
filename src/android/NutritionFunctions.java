@@ -81,7 +81,7 @@ public class NutritionFunctions {
     }
 
     public static void populateFromAggregatedQuery(AggregationResult response, JSONObject retObj) throws JSONException {
-        if (response.get(NutritionRecord.ENERGY_TOTAL) != null) {
+        if (response.get(NutritionRecord.ENERGY_TOTAL) != null || response.get(NutritionRecord.PROTEIN_TOTAL) != null || response.get(NutritionRecord.TOTAL_FAT_TOTAL) != null || response.get(NutritionRecord.TOTAL_CARBOHYDRATE_TOTAL) != null) {
             JSONObject nutritionStats = new JSONObject();
 
             Energy totalEnergy = response.get(NutritionRecord.ENERGY_TOTAL);
